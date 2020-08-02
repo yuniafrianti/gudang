@@ -1,19 +1,7 @@
-<form method="POST" action=index.php?id=16.php>
-
-  
-                <div class="box-header">
-              <h3 class="box-title"></h3>
-              <a href="cetak_barangmasuk.php" target="_blank" class="btn btn-default float-right">Print Pdf</a>
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
+<?php 
+include('koneksi.php');
+?>
+                <h3 align="center">Report Barang Masuk</h3>
 
                <?php
                  $sqlSelect ="select log.kd_masuk_report, log.kd_barang_report, tbl_barang.nama_barang, log.brand_report, spesifikasi_report, tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok_report, harga_report, tgl_report
@@ -27,9 +15,9 @@
               ?>
             <div class="box-footer">
               <div class="card-body table-responsive p-0" style="height: 300px;">
-              <table class="table table-head-fixed text-nowrap">
+              <table class="table table-head-fixed text-nowrap" border="1px" style="width:100%">
                 <tr>
-                  <th>No</th>
+                  <th width="1%">No</th>
                   <th>Nama Barang</th>
                   <th>Brand</th>
                   <th>Spesifikasi</th>
@@ -38,7 +26,7 @@
                   <th>Qty</th>
                   <th>Harga</th>
                   <th>Total Harga</th>
-                  <th>Date</th>
+                  <th width="15%">Date</th>
                    
 
                 </tr>
@@ -72,7 +60,11 @@
                 <?php 
                   }
                 } 
-                  ?>          
+                  ?>    
+
+                  <script>
+                    window.print();
+                  </script>      
          </table>
           </div>
         </div>

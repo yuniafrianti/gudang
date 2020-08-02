@@ -135,7 +135,14 @@ include("koneksi.php");
                 </div>
                 <!-- /.card-footer -->
 
-                <div class="box-header">
+
+
+
+
+
+
+
+              <!--   <div class="box-header">
               <h3 class="box-title"></h3>
 
               <div class="box-tools">
@@ -147,9 +154,8 @@ include("koneksi.php");
                   </div>
                 </div>
               </div>
-            </div>
-
-               <?php
+            </div> -->
+                  <?php
                  $sqlSelect ="select  tbl_barangmasuk.kd_masuk, tbl_barangmasuk.kd_barang, tbl_barang.nama_barang, tbl_barangmasuk.brand, spesifikasi, tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok, harga, tgl
                     from tbl_barangmasuk inner join tbl_kategori on tbl_kategori.kd_kategori = tbl_barangmasuk.kd_kategori
                     inner join tbl_supplier on tbl_supplier.kd_supplier = tbl_barangmasuk.kd_supplier
@@ -159,6 +165,8 @@ include("koneksi.php");
                     if (mysqli_num_rows($result) > 0) {
                       
               ?>
+
+         
             <div class="box-footer">
               <div class="card-body table-responsive p-0" style="height: 300px;">
               <table class="table table-head-fixed text-nowrap">
@@ -176,6 +184,7 @@ include("koneksi.php");
                   <th>Action</th>   
 
                 </tr>
+              </thead>
   
                   <?php
                     $no=1;

@@ -1,24 +1,8 @@
-            
-            
-            <form method="POST" action=index.php?id=17.php>
-
-
-            <div class="box-header">
-              <h3 class="box-title"></h3>
-              <a href="cetak_barangkeluar.php" target="_blank" class="btn btn-default float-right">Print Pdf</a>
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-           <?php
+ <?php 
+ include('koneksi.php');
+ ?>   
+              <h3 align="center">Report Barang Keluar</h3>
+              <?php
                  $sqlSelect = "select tbl_barangkeluar.kd_brgkeluar, tbl_barangmasuk.kd_masuk, tbl_barang.nama_barang, issued, received, tbl_barangkeluar.stok, tbl_barangkeluar.tgl from tbl_barangkeluar inner join tbl_barangmasuk on tbl_barangmasuk.kd_masuk = tbl_barangkeluar.kd_masuk inner join tbl_barang on tbl_barang.kd_barang = tbl_barangmasuk.kd_barang";
                   $result = mysqli_query($kon, $sqlSelect);
             
@@ -27,14 +11,14 @@
        
           <div class="box-footer">
               <div class="card-body table-responsive p-0" style="height: 300px;">
-              <table class="table table-head-fixed text-nowrap">
+              <table class="table table-head-fixed text-nowrap" border="1px" style:"widht:100%">
                 <tr>
-                  <th>No</th>
+                  <th width="1%">No</th>
                   <th>Issued By</th>
                   <th>Received By</th>
                   <th>Nama Barang</th>
                   <th>Jumlah Barang</th>
-                  <th>Tanggal</th>
+                  <th width="15%">Tanggal</th>
              
                
                 </tr>
@@ -58,9 +42,9 @@
                   }
                 } 
                   ?>
-              
+              <script>
+                window.print();
+              </script>
           </table>
         </div>
       </div>
- </form>
-			 

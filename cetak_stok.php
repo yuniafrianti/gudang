@@ -1,35 +1,10 @@
 <?php 
-// session_start();
-//         if($_SESSION['level']=="supervasior"){
-//     header("location:stok.php?pesan=gagal");
-//   }
- 
-  ?>
-
-        <form method="POST" action=index.php?id=13.php>
-   
-
-              <!-- /.card-header -->
+include('koneksi.php'); 
+?>
+               <!-- /.card-header -->
               <!-- form start -->
-
-         
                
-              <div class="box-header">
-              <h3 class="box-title"></h3>
-
-              <a href="cetak_stok.php"  target="_blank" class="btn btn-default float-right">Print Pdf</a>
-
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+           
                <?php
                  $sqlSelect = "select kd_barang, sum(tbl_barangmasuk.stok) as stok
                   from tbl_barangmasuk group by kd_barang;";
@@ -39,11 +14,11 @@
                    ?>
             <div class="box-footer">
               <div class="card-body table-responsive p-0" style="height: 300px;">
-              <table class="table table-head-fixed text-nowrap">
+              <table class="table table-head-fixed text-nowrap" border="1px" style="width:100%">
                 <tr>
-                  <th>No</th>
+                  <th width="1%">No</th>
                   <th>Nama Barang</th>
-                  <th>Stock</th>
+                  <th width="5%">Stock</th>
               
 
                
@@ -77,7 +52,10 @@
                 } 
                   ?>
             
-
+            <script>
+                window.print();
+              </script>
+ 
                 
          </table>
        </div>

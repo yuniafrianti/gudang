@@ -6,10 +6,10 @@
   
   <!-- cek apakah sudah login -->
   <?php 
-  // session_start();
-  // if($_SESSION['status']!="login"){
-  //   header("location:login.php?pesan=belum_login");
-  // }
+  session_start();
+  if($_SESSION['level']==""){
+    header("location:login.php?pesan=belum_login");
+  }
   ?>
   
 
@@ -236,7 +236,7 @@ $(document).ready(function() {
               } 
                elseif($_GET['id']==17)
               {
-                echo "Report Barang Masuk";
+                echo "Report Barang Keluar";
               } 
                
                else
@@ -320,7 +320,7 @@ $(document).ready(function() {
               {
                 include('report_barangkeluar.php');
               }
-             
+            
              else
              {
 
