@@ -1,88 +1,88 @@
 <?php 
-// session_start();
-//         if($_SESSION['level']=="supervasior"){
-//     header("location:stok.php?pesan=gagal");
-//   }
- 
-  ?>
+include('koneksi.php');
+?>
+            <html>
+            <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+            </script>
+            <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
 
-        <form method="POST" action=index.php?id=13.php>
-   
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
 
-              <!-- /.card-header -->
-              <!-- form start -->
+            tr:nth-child(even) {
+              background-color: #FFFFFF;
+            }
+            </style>
+            </head>
+            <body>
 
-         
-               
-              <div class="box-header">
-              <h3 class="box-title"></h3>
-
-              <a href="cetak_stok.php"  target="_blank" class="btn btn-default float-right">Print Pdf</a>
-
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-               <?php
+            <h2></h2>
+             <a href="cetak_stok.php"  target="_blank" class="btn btn-default pull-right">Print Pdf</a>
+            <input id="myInput" type="text" placeholder="Search..">
+            <br><br>
+  
+            <?php
                  $sqlSelect = "select kd_barang, sum(tbl_barangmasuk.stok) as stok
                   from tbl_barangmasuk group by kd_barang;";
                   $result = mysqli_query($kon, $sqlSelect);
             
                     if (mysqli_num_rows($result) > 0) {
                    ?>
-            <div class="box-footer">
-              <div class="card-body table-responsive p-0" style="height: 300px;">
-              <table class="table table-head-fixed text-nowrap">
-                <tr>
-                  <th>No</th>
+
+          <table>
+            <thead>
+            <tr>
+                 <th>No</th>
                   <th>Nama Barang</th>
                   <th>Stock</th>
-              
+            </tr>
+            </thead>
+            <tbody id="myTable">
+               <?php
+                        $no=1;
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
 
-               
+            <tr>
+                <td><?php  echo $no++; ?></td>
+            
+                <td>
+                    <?php 
+                  include('koneksi.php');
+                  $a="select * from tbl_barang where kd_barang='".$row['kd_barang']."'";
+                  $query=mysqli_query($kon,$a);
+                  $data=mysqli_fetch_object($query);
+                  echo $data->nama_barang;
+
+                 ?>
+
+                </td>
+                <td><?php echo $row['stok'];?></td>          
                 </tr>
-  
-                  <?php
-                    $no=1;
-                while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                <tr>
-                    <td><?php  echo $no++; ?></td>
-
-                    
-                    <td>
-                        <?php 
-                      include('koneksi.php');
-                      $a="select * from tbl_barang where kd_barang='".$row['kd_barang']."'";
-                      $query=mysqli_query($kon,$a);
-                      $data=mysqli_fetch_object($query);
-                      echo $data->nama_barang;
-
-                     ?>
-
-                    </td>
-                    <td><?php echo $row['stok'];?></td>
-                    
-    
-                </tr>
-                <?php
+                 <?php
                   }
                 } 
                   ?>
-            
+            </tbody>
+          </table>
 
-                
-         </table>
-       </div>
-     </div>
-      </form>
-
-     
-  
+          </body>
+          </html>

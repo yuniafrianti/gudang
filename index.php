@@ -1,5 +1,5 @@
 <?php
-  // error_reporting(0);
+  error_reporting(0);
   include('koneksi.php');
 
 ?>
@@ -115,17 +115,7 @@ $(document).ready(function() {
       </div>
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
-       <!--  <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div> -->
       </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-
 
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">DATA MASTER</li>
@@ -135,16 +125,11 @@ $(document).ready(function() {
         <li><a href="index.php?id=2"><i class="fa fa-book"></i> <span>Data Pekerja</span></a></li>
         <li class="header">DATA TRANSAKSI</li>
         <li><a href="index.php?id=3"><i class="fa fa-book"></i> <span>Barang Masuk</span></a></li>
-        <li><a href="index.php?id=4"><i class="fa fa-book"></i> <span>Barang Keluar</span></a></li>
-       
+        <li><a href="index.php?id=4"><i class="fa fa-book"></i> <span>Barang Keluar</span></a></li>       
         <li class="header">REPORT</li>
         <li><a href="index.php?id=16"><i class="fa fa-book"></i> <span>Barang Masuk</span></a></li>
         <li><a href="index.php?id=17"><i class="fa fa-book"></i> <span>Barang Keluar</span></a></li>
         <li><a href="index.php?id=13"><i class="fa fa-book"></i> <span>Stock Barang</span></a></li>
-
-  
-
-
         <li class="header">LABELS</li>
         <li><a href="logout.php"><i class="fa fa-circle-o text-red"></i> <span>Logout</span></a></li>
       </ul>

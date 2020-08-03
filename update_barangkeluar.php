@@ -21,14 +21,13 @@
 
         }
         }
-      
  ?>
+
 
 
 <?php 
 include("koneksi.php");
 
-  
   $id = $_GET['kd_brgkeluar'];
   // var_dump($id);
   $data = mysqli_query($kon,"select * from tbl_barangkeluar where kd_brgkeluar='$id'");
@@ -43,19 +42,18 @@ include("koneksi.php");
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" method="POST" action="index.php?id=5.php">
-                <div class="card-body">
-                 
+               <form class="form-horizontal" method="POST" action="index.php?id=5.php">
+                <div class="card-body"> 
 
-                  <div class="card-body">
+
                   <div class="form-group row">
                    <!--  <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Pegawai</label> -->
                     <div class="col-sm-10">
                       <input type="hidden" class="form-control" name="kd_brgkeluar" value="<?php echo $d['kd_brgkeluar']; ?>">
                     </div>
                   </div>
-
-
+                  
+                   
                      <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Isuued By</label>
                     <div class="col-sm-10">
@@ -76,9 +74,7 @@ include("koneksi.php");
                     </div>
                   </div>
 
-
-
-                     <div class="form-group row">
+                    <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Received By</label>
                     <div class="col-sm-10">
                    <select class="form-control" name="received"> 
@@ -99,7 +95,7 @@ include("koneksi.php");
                   </div>
 
 
-                    <div class="form-group row">
+                     <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Nama Barang </label>
                     <div class="col-sm-10">
                    <select class="form-control" name="kd_masuk"> 
@@ -118,41 +114,39 @@ include("koneksi.php");
                    </select>
                     </div>
                   </div>
-
                   
-
-                    <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Qyt</label>
+                   <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Qty</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="stok" value="<?php echo $d['stok']; ?>">
                     </div>
                   </div>
 
-                         <div class="form-group row">
+                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Date</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="tgl" value="<?php echo $d['tgl']; ?>">
                     </div>
                   </div>
                   
-                 
+
+                
                 </div>
                 <!-- /.card-body -->
                  <div class="box-footer">
-                  <button type="submit" name="simpan" class="btn btn-info pull-right" >Update</button>
+                  <button type="submit" name="simpan" class="btn btn-info pull-right">Update</button>
                   <button type="submit" class="btn btn-default float-right">Cancel</button>
                   <br>
                 </div>
                 <!-- /.card-footer -->
 
+                <?php
 
-               <?php
-              
-               }
-
-              ?>
-
-
+              }
+                ?>
+            
               </form>
             </div>
-            </div>
+          </div>
+
+              

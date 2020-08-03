@@ -57,7 +57,6 @@ if(isset($_POST["simpan"])){
           
                 <tr>
                   <th>No</th>
-                  <th>Kode Barang</th>
                   <th>Nama Barang</th>
                   <th>Action</th>
                 </tr>
@@ -69,7 +68,6 @@ if(isset($_POST["simpan"])){
              
                 <tr>
                     <td><?php  echo $no++; ?></td>
-                    <td><?php echo $row['kd_barang'];?></td>
                     <td><?php echo $row['nama_barang'];?></td>
                     <td><a href="index.php?id=7?&kd_barang=<?php echo $row['kd_barang']; ?>">Update</a> | <a href="delete_barang.php?kd_barang=<?php echo $row['kd_barang']; ?>">Delete</a>
                 </tr>

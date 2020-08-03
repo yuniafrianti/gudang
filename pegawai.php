@@ -81,7 +81,7 @@ if(isset($_POST["simpan"])){
               
           
 			   </table>
-			    </td>
+			   
 
           </div>
       
