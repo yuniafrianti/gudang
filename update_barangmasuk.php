@@ -2,16 +2,16 @@
       include 'koneksi.php';
       $kd_masuk=$_POST['kd_masuk'];
       $kd_barang=$_POST['kd_barang'];
-      $brand_report=$_POST['brand_report'];
-      $spesifikasi_report=$_POST['spesifikasi_report'];
+      $brand=$_POST['brand'];
+      $spesifikasi=$_POST['spesifikasi'];
       $kd_supplier=$_POST['kd_supplier'];
       $kd_kategori=$_POST['kd_kategori'];
-      $stok_report=$_POST['stok_report'];
-      $harga_report=$_POST['harga_report'];
-      $tgl_report=$_POST['tgl_report'];
+      $stok=$_POST['stok'];
+      $harga=$_POST['harga'];
+      $tgl=$_POST['tgl'];
 
       if(isset($_POST["simpan"])){
-      $a="update log set  kd_barang='$kd_barang', brand_report='$brand_report', spesifikasi_report='$spesifikasi_report', kd_supplier='$kd_supplier', kd_kategori='$kd_kategori', stok_report='$stok_report', harga_Report='$harga_report' , tgl_report='$tgl_report' where kd_masuk='$kd_masuk'";
+      $a="update tbl_barangmasuk set  kd_barang='$kd_barang', brand='$brand', spesifikasi='$spesifikasi', kd_supplier='$kd_supplier', kd_kategori='$kd_kategori', stok='$stok', harga='$harga' , tgl='$tgl' where kd_masuk='$kd_masuk'";
       var_dump($a);
       $query=mysqli_query($kon,$a);
         if($query) {
@@ -34,7 +34,7 @@ include("koneksi.php");
 
      $id = $_GET['kd_masuk'];
   // var_dump($id);
-  $data = mysqli_query($kon,"select * from log where kd_masuk='$id'");
+  $data = mysqli_query($kon,"select * from tbl_barangmasuk where kd_masuk='$id'");
   while($d = mysqli_fetch_array($data)){
 
 ?>
@@ -82,14 +82,14 @@ include("koneksi.php");
                     <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Brand</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="brand_report" value="<?php echo $d['brand_report']; ?>">
+                      <input type="text" class="form-control" name="brand" value="<?php echo $d['brand']; ?>">
                     </div>
                   </div>
 
                    <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Spesifikasi</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="spesifikasi_report" value="<?php echo $d['spesifikasi_report']; ?>">
+                      <input type="text" class="form-control" name="spesifikasi" value="<?php echo $d['spesifikasi']; ?>">
                     </div>
                   </div>
                   
@@ -136,21 +136,21 @@ include("koneksi.php");
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Qty</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="stok_report" value="<?php echo $d['stok_report']; ?>">
+                      <input type="text" class="form-control" name="stok" value="<?php echo $d['stok']; ?>">
                     </div>
                   </div>
 
                     <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="harga_report" value="<?php echo $d['harga_report']; ?>">
+                      <input type="text" class="form-control" name="harga" value="<?php echo $d['harga']; ?>">
                     </div>
                   </div>
 
                    <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Date</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="tgl_report" value="<?php echo $d['tgl_report']; ?>">
+                      <input type="text" class="form-control" name="tgl" value="<?php echo $d['tgl']; ?>">
                     </div>
                   </div>
 

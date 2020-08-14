@@ -40,8 +40,8 @@ include('koneksi.php');
             <br><br>
   
             <?php
-                 $sqlSelect = "select kd_barang, sum(tbl_barangmasuk.stok) as stok
-                  from tbl_barangmasuk group by kd_barang;";
+                 $sqlSelect = "select kd_barang, sum(log.stok_report) as stok
+                  from log group by kd_barang;";
                   $result = mysqli_query($kon, $sqlSelect);
             
                     if (mysqli_num_rows($result) > 0) {

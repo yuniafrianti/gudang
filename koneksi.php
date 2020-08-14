@@ -1,3 +1,3 @@
 <?php
-	$kon=mysqli_connect('localhost','root','','dbs_sistem');
+	$kon=mysqli_connect('localhost','root','','dbs_gudang');
 ?>

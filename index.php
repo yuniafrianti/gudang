@@ -106,7 +106,7 @@ $(document).ready(function() {
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="temp/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img class="img-circle">
         </div>
         <div class="pull-left info">
           <p><?php echo $_SESSION['username']; ?></p>

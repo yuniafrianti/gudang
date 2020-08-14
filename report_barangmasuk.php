@@ -39,10 +39,10 @@
               <input id="myInput" type="text" placeholder="Search..">
               <br><br>
               <?php
-                 $sqlSelect ="select log.kd_masuk, log.kd_barang, tbl_barang.nama_barang, log.brand_report, spesifikasi_report, tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok_report, harga_report, tgl_report
-                    from log inner join tbl_kategori on tbl_kategori.kd_kategori = log.kd_kategori
-                    inner join tbl_supplier on tbl_supplier.kd_supplier = log.kd_supplier
-                    inner join tbl_barang on tbl_barang.kd_barang = log.kd_barang";
+                 $sqlSelect ="select tbl_barangmasuk.kd_masuk, tbl_barangmasuk.kd_barang, tbl_barang.nama_barang, tbl_barangmasuk.brand, spesifikasi, tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok, harga, tgl
+                    from tbl_barangmasuk inner join tbl_kategori on tbl_kategori.kd_kategori = tbl_barangmasuk.kd_kategori
+                    inner join tbl_supplier on tbl_supplier.kd_supplier = tbl_barangmasuk.kd_supplier
+                    inner join tbl_barang on tbl_barang.kd_barang = tbl_barangmasuk.kd_barang";
                   $result = mysqli_query($kon, $sqlSelect);
             
                     if (mysqli_num_rows($result) > 0) {
@@ -71,23 +71,23 @@
                 <tr>
                   <td><?php  echo $no++; ?></td>
                     <td><?php echo $row['nama_barang'];?></td>
-                    <td><?php echo $row['brand_report'];?></td>
-                    <td><?php echo $row['spesifikasi_report'];?></td>
+                    <td><?php echo $row['brand'];?></td>
+                    <td><?php echo $row['spesifikasi'];?></td>
                     <td><?php echo $row['nama_supplier'];?></td>
                     <td><?php echo $row['nama_kategori'];?></td>
-                    <td><?php echo $row['stok_report'];?></td>
-                    <td><?php echo "Rp. ".number_format($row['harga_report'])."";?></td>
+                    <td><?php echo $row['stok'];?></td>
+                    <td><?php echo "Rp. ".number_format($row['harga'])."";?></td>
                <!--      var_dump($total); -->
                    
 
                     <td> <?php 
-                    $a=$row['stok_report'];
-                    $b=$row['harga_report'];
+                    $a=$row['stok'];
+                    $b=$row['harga'];
                     $c=$a*$b;
                     echo "Rp. ".number_format($c)."";
 
                     ?> </td>
-                    <td><?php echo $row['tgl_report'];?></td>
+                    <td><?php echo $row['tgl'];?></td>
                 </tr>
                   <?php 
                   }
