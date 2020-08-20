@@ -39,7 +39,7 @@
               <input id="myInput" type="text" placeholder="Search..">
               <br><br>
               <?php
-                 $sqlSelect ="select tbl_barangmasuk.kd_masuk, tbl_barangmasuk.kd_barang, tbl_barang.nama_barang, tbl_barangmasuk.brand, spesifikasi, tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok, harga, tgl
+                 $sqlSelect ="select tbl_barangmasuk.kd_masuk, tbl_barangmasuk.kd_barang, tbl_barang.nama_barang, tbl_barangmasuk.brand,  tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok, harga, tgl
                     from tbl_barangmasuk inner join tbl_kategori on tbl_kategori.kd_kategori = tbl_barangmasuk.kd_kategori
                     inner join tbl_supplier on tbl_supplier.kd_supplier = tbl_barangmasuk.kd_supplier
                     inner join tbl_barang on tbl_barang.kd_barang = tbl_barangmasuk.kd_barang";
@@ -54,7 +54,6 @@
                   <th>No</th>
                   <th>Nama Barang</th>
                   <th>Brand</th>
-                  <th>Spesifikasi</th>
                   <th>Supplier</th>
                   <th>Category</th>
                   <th>Qty</th>
@@ -72,7 +71,6 @@
                   <td><?php  echo $no++; ?></td>
                     <td><?php echo $row['nama_barang'];?></td>
                     <td><?php echo $row['brand'];?></td>
-                    <td><?php echo $row['spesifikasi'];?></td>
                     <td><?php echo $row['nama_supplier'];?></td>
                     <td><?php echo $row['nama_kategori'];?></td>
                     <td><?php echo $row['stok'];?></td>

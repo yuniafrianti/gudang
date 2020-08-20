@@ -3,7 +3,7 @@ include("koneksi.php");
 
 
   if(isset($_POST["simpan"])){
-    $sql="insert into tbl_barangmasuk values('".$_POST['kd_masuk']."','".$_POST['kd_barang']."','".$_POST['brand']."','".$_POST['spesifikasi']."','".$_POST['kd_supplier']."','".$_POST['kd_kategori']."','".$_POST['stok']."','".$_POST['harga']."','".$_POST['tgl']."')";
+    $sql="insert into tbl_barangmasuk values('".$_POST['kd_masuk']."','".$_POST['kd_barang']."','".$_POST['brand']."','".$_POST['kd_supplier']."','".$_POST['kd_kategori']."','".$_POST['stok']."','".$_POST['harga']."','".$_POST['tgl']."')";
     $query=mysqli_query($kon,$sql);
     if($query){
       echo "data berhasil disimpan";
@@ -51,12 +51,6 @@ include("koneksi.php");
                     </div>
                   </div>
 
-                    <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Spesifikasi</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="spesifikasi" placeholder="Spesifikasi">
-                    </div>
-                  </div>
                  
 
             
@@ -174,7 +168,7 @@ include("koneksi.php");
               <input id="myInput" type="text" placeholder="Search..">
               <br><br>
                 <?php
-                 $sqlSelect ="select tbl_barangmasuk.kd_masuk, tbl_barangmasuk.kd_barang, tbl_barang.nama_barang, tbl_barangmasuk.brand, spesifikasi, tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok, harga, tgl
+                 $sqlSelect ="select tbl_barangmasuk.kd_masuk, tbl_barangmasuk.kd_barang, tbl_barang.nama_barang, tbl_barangmasuk.brand,  tbl_supplier.nama_supplier, tbl_kategori.nama_kategori,  stok, harga, tgl
                     from tbl_barangmasuk inner join tbl_kategori on tbl_kategori.kd_kategori = tbl_barangmasuk.kd_kategori
                     inner join tbl_supplier on tbl_supplier.kd_supplier = tbl_barangmasuk.kd_supplier
                     inner join tbl_barang on tbl_barang.kd_barang = tbl_barangmasuk.kd_barang";
@@ -189,7 +183,6 @@ include("koneksi.php");
                   <th>No</th>
                   <th>Nama Barang</th>
                   <th>Brand</th>
-                  <th>Spesifikasi</th>
                   <th>Supplier</th>
                   <th>Category</th>
                   <th>Qty</th>
@@ -208,7 +201,6 @@ include("koneksi.php");
                   <td><?php  echo $no++; ?></td>
                     <td><?php echo $row['nama_barang'];?></td>
                     <td><?php echo $row['brand'];?></td>
-                    <td><?php echo $row['spesifikasi'];?></td>
                     <td><?php echo $row['nama_supplier'];?></td>
                     <td><?php echo $row['nama_kategori'];?></td>
                     <td><?php echo $row['stok'];?></td>

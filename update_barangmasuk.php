@@ -11,7 +11,7 @@
       $tgl=$_POST['tgl'];
 
       if(isset($_POST["simpan"])){
-      $a="update tbl_barangmasuk set  kd_barang='$kd_barang', brand='$brand', spesifikasi='$spesifikasi', kd_supplier='$kd_supplier', kd_kategori='$kd_kategori', stok='$stok', harga='$harga' , tgl='$tgl' where kd_masuk='$kd_masuk'";
+      $a="update tbl_barangmasuk set  kd_barang='$kd_barang', brand='$brand', kd_supplier='$kd_supplier', kd_kategori='$kd_kategori', stok='$stok', harga='$harga' , tgl='$tgl' where kd_masuk='$kd_masuk'";
       var_dump($a);
       $query=mysqli_query($kon,$a);
         if($query) {
@@ -86,12 +86,7 @@ include("koneksi.php");
                     </div>
                   </div>
 
-                   <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label"> Spesifikasi</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="spesifikasi" value="<?php echo $d['spesifikasi']; ?>">
-                    </div>
-                  </div>
+                 
                   
                      <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Supplier </label>
